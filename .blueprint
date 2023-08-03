@@ -1,0 +1,19 @@
+created:
+    - app/Http/Controllers/TauxImposambleController.php
+    - database/factories/TauxImposambleFactory.php
+    - database/migrations/2023_08_03_163240_create_taux_imposambles_table.php
+    - app/Models/TauxImposamble.php
+    - database/seeders/TauxImposambleSeeder.php
+    - tests/Feature/Http/Controllers/TauxImposambleControllerTest.php
+    - app/Http/Requests/TauxImposambleStoreRequest.php
+    - app/Http/Requests/TauxImposambleUpdateRequest.php
+    - app/Http/Resources/TauxImposambleCollection.php
+    - app/Http/Resources/TauxImposambleResource.php
+updated:
+    - routes/api.php
+models:
+    Adresse: { pays: string, province: string, commune: string, colline: 'string nullable' }
+    Contribuable: { title: string, adresse_id: 'id foreign:adresses.id', nif: 'string unique', damaine_activity: 'string nullable', description: 'text nullable' }
+    Employe: { cni: 'string unique nullable', nom: 'string nullable', prenom: 'string nullable', status_employe: 'string nullable', salaire_base: double, frais_deplacement: double, indeminite_compansatoire: 'double nullable', avantage_en_nature: 'double nullable', contribuable_id: 'id foreign:contribuables.id' }
+    PaimentIpr: { contribuable_id: 'id foreign:contribuables.id', employe_id: 'id foreign:employees', date_paiement: date, montant_employe: double, montant_employeur: double, total_paiement: 'double nullable' }
+    TauxImposamble: { date: date, min_montant: double, max_montant: double, taux_imposamble: double }
