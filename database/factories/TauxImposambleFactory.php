@@ -22,9 +22,9 @@ class TauxImposambleFactory extends Factory
     {
         return [
             'date' => $this->faker->date(),
-            'min_montant' => $this->faker->randomFloat(0, 0, 9999999999.),
-            'max_montant' => $this->faker->randomFloat(0, 0, 9999999999.),
-            'taux_imposamble' => $this->faker->randomFloat(0, 0, 9999999999.),
+            'min_montant' => $this->faker->randomFloat(0, 1000, 100000.),
+            'max_montant' => $this->faker->randomFloat(0, 100000, 2000000.),
+            'taux_imposamble' => $this->faker->randomFloat(0, 10, 100.),
         ];
     }
 }

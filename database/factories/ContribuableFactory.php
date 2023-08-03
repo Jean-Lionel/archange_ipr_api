@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Adresse;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Adress;
@@ -23,8 +24,8 @@ class ContribuableFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'adresse_id' => Adress::factory(),
-            'nif' => $this->faker->word,
+            'adresse_id' => Adresse::factory(),
+            'nif' => 'NIF-' . $this->faker->randomFloat(0, 0, 9999999999.),
             'damaine_activity' => $this->faker->word,
             'description' => $this->faker->text,
         ];

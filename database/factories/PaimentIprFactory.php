@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Employe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Contribuable;
@@ -24,7 +25,7 @@ class PaimentIprFactory extends Factory
     {
         return [
             'contribuable_id' => Contribuable::factory(),
-            'employe_id' => Employee::factory(),
+            'employe_id' => Employe::factory(),
             'date_paiement' => $this->faker->date(),
             'montant_employe' => $this->faker->randomFloat(0, 0, 9999999999.),
             'montant_employeur' => $this->faker->randomFloat(0, 0, 9999999999.),

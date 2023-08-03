@@ -12,33 +12,33 @@ use Illuminate\Http\Response;
 
 class TauxImposambleController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $tauxImposambles = TauxImposamble::all();
 
         return new TauxImposambleCollection($tauxImposambles);
     }
 
-    public function store(TauxImposambleStoreRequest $request): Response
+    public function store(TauxImposambleStoreRequest $request)
     {
         $tauxImposamble = TauxImposamble::create($request->validated());
 
         return new TauxImposambleResource($tauxImposamble);
     }
 
-    public function show(Request $request, TauxImposamble $tauxImposamble): Response
+    public function show(Request $request, TauxImposamble $tauxImposamble)
     {
         return new TauxImposambleResource($tauxImposamble);
     }
 
-    public function update(TauxImposambleUpdateRequest $request, TauxImposamble $tauxImposamble): Response
+    public function update(TauxImposambleUpdateRequest $request, TauxImposamble $tauxImposamble)
     {
         $tauxImposamble->update($request->validated());
 
         return new TauxImposambleResource($tauxImposamble);
     }
 
-    public function destroy(Request $request, TauxImposamble $tauxImposamble): Response
+    public function destroy(Request $request, TauxImposamble $tauxImposamble)
     {
         $tauxImposamble->delete();
 

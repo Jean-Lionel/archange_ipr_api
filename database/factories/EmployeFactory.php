@@ -22,7 +22,7 @@ class EmployeFactory extends Factory
     public function definition(): array
     {
         return [
-            'cni' => $this->faker->word,
+            'cni' => $this->faker->randomFloat(0, 0, 9999999999.),
             'nom' => $this->faker->word,
             'prenom' => $this->faker->word,
             'status_employe' => $this->faker->word,

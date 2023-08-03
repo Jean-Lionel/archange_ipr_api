@@ -12,33 +12,33 @@ use Illuminate\Http\Response;
 
 class PaimentIprController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $paimentIprs = PaimentIpr::all();
 
         return new PaimentIprCollection($paimentIprs);
     }
 
-    public function store(PaimentIprStoreRequest $request): Response
+    public function store(PaimentIprStoreRequest $request)
     {
         $paimentIpr = PaimentIpr::create($request->validated());
 
         return new PaimentIprResource($paimentIpr);
     }
 
-    public function show(Request $request, PaimentIpr $paimentIpr): Response
+    public function show(Request $request, PaimentIpr $paimentIpr)
     {
         return new PaimentIprResource($paimentIpr);
     }
 
-    public function update(PaimentIprUpdateRequest $request, PaimentIpr $paimentIpr): Response
+    public function update(PaimentIprUpdateRequest $request, PaimentIpr $paimentIpr)
     {
         $paimentIpr->update($request->validated());
 
         return new PaimentIprResource($paimentIpr);
     }
 
-    public function destroy(Request $request, PaimentIpr $paimentIpr): Response
+    public function destroy(Request $request, PaimentIpr $paimentIpr)
     {
         $paimentIpr->delete();
 

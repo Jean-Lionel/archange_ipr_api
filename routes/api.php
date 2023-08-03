@@ -21,10 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('adresse', App\Http\Controllers\AdresseController::class);
 
-
-Route::apiResource('adresse', App\Http\Controllers\AdresseController::class);
-
-
 Route::apiResource('contribuable', App\Http\Controllers\ContribuableController::class);
 
 

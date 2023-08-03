@@ -12,33 +12,33 @@ use Illuminate\Http\Response;
 
 class AdresseController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $adresses = Adresse::all();
 
         return new AdressCollection($adresses);
     }
 
-    public function store(AdresseStoreRequest $request): Response
+    public function store(AdresseStoreRequest $request)
     {
         $adresse = Adresse::create($request->validated());
 
         return new AdresseResource($adresse);
     }
 
-    public function show(Request $request, Adresse $adresse): Response
+    public function show(Request $request, Adresse $adresse)
     {
         return new AdresseResource($adresse);
     }
 
-    public function update(AdresseUpdateRequest $request, Adresse $adresse): Response
+    public function update(AdresseUpdateRequest $request, Adresse $adresse)
     {
         $adresse->update($request->validated());
 
         return new AdresseResource($adresse);
     }
 
-    public function destroy(Request $request, Adresse $adresse): Response
+    public function destroy(Request $request, Adresse $adresse)
     {
         $adresse->delete();
 

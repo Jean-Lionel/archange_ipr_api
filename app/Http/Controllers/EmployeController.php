@@ -12,33 +12,33 @@ use Illuminate\Http\Response;
 
 class EmployeController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $employes = Employe::all();
 
         return new EmployeCollection($employes);
     }
 
-    public function store(EmployeStoreRequest $request): Response
+    public function store(EmployeStoreRequest $request)
     {
         $employe = Employe::create($request->validated());
 
         return new EmployeResource($employe);
     }
 
-    public function show(Request $request, Employe $employe): Response
+    public function show(Request $request, Employe $employe)
     {
         return new EmployeResource($employe);
     }
 
-    public function update(EmployeUpdateRequest $request, Employe $employe): Response
+    public function update(EmployeUpdateRequest $request, Employe $employe)
     {
         $employe->update($request->validated());
 
         return new EmployeResource($employe);
     }
 
-    public function destroy(Request $request, Employe $employe): Response
+    public function destroy(Request $request, Employe $employe)
     {
         $employe->delete();
 

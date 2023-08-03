@@ -12,33 +12,33 @@ use Illuminate\Http\Response;
 
 class ContribuableController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $contribuables = Contribuable::all();
 
         return new ContribuableCollection($contribuables);
     }
 
-    public function store(ContribuableStoreRequest $request): Response
+    public function store(ContribuableStoreRequest $request)
     {
         $contribuable = Contribuable::create($request->validated());
 
         return new ContribuableResource($contribuable);
     }
 
-    public function show(Request $request, Contribuable $contribuable): Response
+    public function show(Request $request, Contribuable $contribuable)
     {
         return new ContribuableResource($contribuable);
     }
 
-    public function update(ContribuableUpdateRequest $request, Contribuable $contribuable): Response
+    public function update(ContribuableUpdateRequest $request, Contribuable $contribuable)
     {
         $contribuable->update($request->validated());
 
         return new ContribuableResource($contribuable);
     }
 
-    public function destroy(Request $request, Contribuable $contribuable): Response
+    public function destroy(Request $request, Contribuable $contribuable)
     {
         $contribuable->delete();
 
