@@ -23,6 +23,7 @@ class EmployeResource extends JsonResource
             'indeminite_compansatoire' => $this->indeminite_compansatoire,
             'avantage_en_nature' => $this->avantage_en_nature,
             'contribuable_id' => $this->contribuable_id,
+            'contribuable' => $this->contribuable->title,
         ];
     }
 }

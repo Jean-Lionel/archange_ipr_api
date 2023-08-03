@@ -19,6 +19,7 @@ class ContribuableResource extends JsonResource
             'nif' => $this->nif,
             'damaine_activity' => $this->damaine_activity,
             'description' => $this->description,
+
         ];
     }
 }

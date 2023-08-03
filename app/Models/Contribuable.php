@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Employe;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,5 +37,9 @@ class Contribuable extends Model
     public function adresse(): BelongsTo
     {
         return $this->belongsTo(Adress::class);
+    }
+    public function employes()
+    {
+        return $this->hasMany(Employe::class);
     }
 }

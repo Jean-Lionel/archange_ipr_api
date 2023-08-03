@@ -14,9 +14,9 @@ class EmployeController extends Controller
 {
     public function index(Request $request)
     {
-        $employes = Employe::all();
+        $employes = Employe::with('contribuable')->paginate();
 
-        return new EmployeCollection($employes);
+        return $employes;
     }
 
     public function store(EmployeStoreRequest $request)

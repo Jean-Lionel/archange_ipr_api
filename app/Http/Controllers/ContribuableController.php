@@ -14,9 +14,9 @@ class ContribuableController extends Controller
 {
     public function index(Request $request)
     {
-        $contribuables = Contribuable::all();
+        $contribuables = Contribuable::with('employes')->paginate();
 
-        return new ContribuableCollection($contribuables);
+        return $contribuables;
     }
 
     public function store(ContribuableStoreRequest $request)
