@@ -26,9 +26,12 @@ class EmployeController extends Controller
         return new EmployeResource($employe);
     }
 
-    public function show(Request $request, Employe $employe)
+    public function show(Request $request,  $employe)
     {
-        return new EmployeResource($employe);
+        $employe = Employe::find($employe);
+        return $employe ? new EmployeResource($employe) : response()->json([
+            'error' => 'Employ Not Found'
+        ]);
     }
 
     public function update(EmployeUpdateRequest $request, Employe $employe)
