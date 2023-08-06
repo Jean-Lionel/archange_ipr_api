@@ -23,6 +23,7 @@ class Employe extends Model
         'nom',
         'prenom',
         'status_employe',
+        'mfp',
         'salaire_base',
         'frais_deplacement',
         'indeminite_compansatoire',
