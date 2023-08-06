@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin IdeHelperEmploye
+ */
 class Employe extends Model
 {
     use HasFactory;
@@ -44,5 +47,10 @@ class Employe extends Model
     public function contribuable(): BelongsTo
     {
         return $this->belongsTo(Contribuable::class);
+    }
+    public function calculer_ipr()
+    {
+        $remuneration_brut = $this->salaire_base + $this->frais_deplacement + $this->indeminite_compansatoire;
+        
     }
 }
