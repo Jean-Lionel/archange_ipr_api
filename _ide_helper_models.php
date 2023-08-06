@@ -79,10 +79,10 @@ namespace App\Models{
  * @property string|null $prenom
  * @property string|null $status_employe
  * @property float $salaire_base
- * @property float $frais_deplacement
+ * @property float|null $frais_deplacement
+ * @property float|null $cotisations
  * @property float|null $indeminite_compansatoire
  * @property float|null $avantage_en_nature
- * @property float|null $indeminite_logement
  * @property int $contribuable_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -94,11 +94,11 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereAvantageEnNature($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereCni($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereContribuableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Employe whereCotisations($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereFraisDeplacement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereIndeminiteCompansatoire($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Employe whereIndeminiteLogement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereNom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe wherePrenom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereSalaireBase($value)
@@ -118,6 +118,10 @@ namespace App\Models{
  * @property int $employe_id
  * @property \Illuminate\Support\Carbon $date_paiement
  * @property float $montant_employe
+ * @property float $base_imposable
+ * @property float $remuneration_brut
+ * @property float $inss
+ * @property float $IPR
  * @property float $montant_employeur
  * @property float|null $total_paiement
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -127,13 +131,17 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr query()
+ * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereBaseImposable($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereContribuableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereDatePaiement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereEmployeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereIPR($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereInss($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereMontantEmploye($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereMontantEmployeur($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereRemunerationBrut($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereTotalPaiement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereUpdatedAt($value)
  */

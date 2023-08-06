@@ -18,13 +18,10 @@ class PaimentIpr extends Model
      *
      * @var array
      */
+
+
     protected $fillable = [
-        'contribuable_id',
-        'employe_id',
-        'date_paiement',
-        'montant_employe',
-        'montant_employeur',
-        'total_paiement',
+         'contribuable_id', 'employe_id', 'date_paiement', 'montant_employe', 'base_imposable', 'remuneration_brut', 'inss', 'IPR', 'montant_employeur', 'total_paiement'
     ];
 
     /**
