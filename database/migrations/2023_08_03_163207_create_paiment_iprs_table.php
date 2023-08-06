@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('paiment_iprs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contribuable_id')->constrained();
-            $table->foreignId('employe_id')->constrained('employees');
+            $table->foreignId('employe_id')->constrained('employes');
             $table->date('date_paiement');
             $table->double('montant_employe');
             $table->double('base_imposable');
             $table->double('remuneration_brut');
             $table->double('inss');
+            $table->double('mfp');
             $table->double('IPR');
             $table->double('montant_employeur');
             $table->double('total_paiement')->nullable();

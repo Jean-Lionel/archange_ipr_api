@@ -121,6 +121,7 @@ namespace App\Models{
  * @property float $base_imposable
  * @property float $remuneration_brut
  * @property float $inss
+ * @property float $mfp
  * @property float $IPR
  * @property float $montant_employeur
  * @property float|null $total_paiement
@@ -139,6 +140,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereIPR($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereInss($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereMfp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereMontantEmploye($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereMontantEmployeur($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PaimentIpr whereRemunerationBrut($value)

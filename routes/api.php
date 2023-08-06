@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaimentIprController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::apiResource('contribuable', App\Http\Controllers\ContribuableController::
 Route::apiResource('employe', App\Http\Controllers\EmployeController::class);
 
 
-Route::apiResource('paiment-ipr', App\Http\Controllers\PaimentIprController::class);
+Route::apiResource('paiment-ipr', PaimentIprController::class);
 
-
+Route::get('generate_ipr', [PaimentIprController::class, 'generate_ipr']);
 Route::apiResource('taux-imposamble', App\Http\Controllers\TauxImposambleController::class);
