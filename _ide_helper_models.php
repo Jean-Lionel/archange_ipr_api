@@ -82,6 +82,7 @@ namespace App\Models{
  * @property float $frais_deplacement
  * @property float|null $indeminite_compansatoire
  * @property float|null $avantage_en_nature
+ * @property float|null $indeminite_logement
  * @property int $contribuable_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -97,6 +98,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereFraisDeplacement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereIndeminiteCompansatoire($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Employe whereIndeminiteLogement($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereNom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe wherePrenom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Employe whereSalaireBase($value)

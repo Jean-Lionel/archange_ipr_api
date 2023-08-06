@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('prenom')->nullable();
             $table->string('status_employe')->nullable();
             $table->double('salaire_base');
-            $table->double('frais_deplacement');
+            $table->double('frais_deplacement')->nullable();
+            $table->double('cotisations')->nullable();
             $table->double('indeminite_compansatoire')->nullable();
             $table->double('avantage_en_nature')->nullable();
             $table->foreignId('contribuable_id')->constrained();

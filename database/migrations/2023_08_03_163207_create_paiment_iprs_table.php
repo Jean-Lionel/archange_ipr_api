@@ -19,6 +19,10 @@ return new class extends Migration
             $table->foreignId('employe_id')->constrained('employees');
             $table->date('date_paiement');
             $table->double('montant_employe');
+            $table->double('base_imposable');
+            $table->double('remuneration_brut');
+            $table->double('inss');
+            $table->double('IPR');
             $table->double('montant_employeur');
             $table->double('total_paiement')->nullable();
             $table->timestamps();

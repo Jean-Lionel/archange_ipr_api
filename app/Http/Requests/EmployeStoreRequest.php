@@ -32,3 +32,5 @@ class EmployeStoreRequest extends FormRequest
         ];
     }
 }
+
+
