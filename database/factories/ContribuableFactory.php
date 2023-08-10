@@ -24,7 +24,7 @@ class ContribuableFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'adresse_id' => Adresse::factory(),
+            'adresse_id' => random_int(1,100),
             'nif' => 'NIF-' . $this->faker->randomFloat(0, 0, 9999999999.),
             'damaine_activity' => $this->faker->word,
             'description' => $this->faker->text,

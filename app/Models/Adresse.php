@@ -18,10 +18,7 @@ class Adresse extends Model
      * @var array
      */
     protected $fillable = [
-        'pays',
-        'province',
-        'commune',
-        'colline',
+        'zipcode', 'region', 'district', 'city', 'oldzipcode'
     ];
 
     /**

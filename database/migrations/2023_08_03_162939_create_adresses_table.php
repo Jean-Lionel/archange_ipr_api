@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('adresses', function (Blueprint $table) {
             $table->id();
-            $table->string('pays');
-            $table->string('province');
-            $table->string('commune');
-            $table->string('colline')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('region')->nullable();
+            $table->string('district')->nullable();
+            $table->string('city')->nullable();
+            $table->string('oldzipcode')->nullable();
+            $table->string('pays')->default('Burundi');
             $table->timestamps();
         });
     }

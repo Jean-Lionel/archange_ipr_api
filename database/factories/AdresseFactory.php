@@ -20,11 +20,13 @@ class AdresseFactory extends Factory
      */
     public function definition(): array
     {
+        // '', '', '', '', ''
         return [
-            'pays' => $this->faker->word,
-            'province' => $this->faker->word,
-            'commune' => $this->faker->word,
-            'colline' => $this->faker->word,
+            // 'zipcode' => $this->faker->word,
+            // 'region' => $this->faker->word,
+            // 'district' => $this->faker->word,
+            // 'city' => $this->faker->word,
+            // 'oldzipcode' => $this->faker->word,
         ];
     }
 }

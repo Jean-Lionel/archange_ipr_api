@@ -16,23 +16,27 @@ namespace App\Models{
  *
  * @mixin IdeHelperAdresse
  * @property int $id
+ * @property string|null $zipcode
+ * @property string|null $region
+ * @property string|null $district
+ * @property string|null $city
+ * @property string|null $oldzipcode
  * @property string $pays
- * @property string $province
- * @property string $commune
- * @property string|null $colline
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\AdresseFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse query()
- * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereColline($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereCommune($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereDistrict($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereOldzipcode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse wherePays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereRegion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Adresse whereZipcode($value)
  */
 	class Adresse extends \Eloquent {}
 }
@@ -184,6 +188,10 @@ namespace App\Models{
  * @mixin IdeHelperUser
  * @property int $id
  * @property string $name
+ * @property string|null $username
+ * @property string|null $role
+ * @property string|null $phone
+ * @property int|null $contriuable_id
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
@@ -198,14 +206,18 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereContriuableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUsername($value)
  */
 	class User extends \Eloquent {}
 }

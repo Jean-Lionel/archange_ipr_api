@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+
 class UserController extends Controller
 {
     public function connected_user()
@@ -18,6 +22,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+      //  return $request->all();
         $fields = $request->validate([
             'name' => 'required|string',
             'username' => 'required|string',
@@ -38,10 +43,7 @@ class UserController extends Controller
             $user->image = 'user_profile/' . $filename;
         }
         $user->save();
-        $user_role = UserRole::create([
-            'user_id' => $user->id,
-            'role_id' => 3,
-        ]);
+
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
@@ -84,18 +86,15 @@ class UserController extends Controller
     public function logout(User $user)
     {
         $user->tokens()->delete();
-
         return [
             'message' => 'Logged Out'
         ];
     }
     public function index()
     {
-        $Role = Role::all();
-        $users = User::with('roles')->get();
+        $users = User::get();
         $response = [
             'users' => $users,
-            'roles' => $Role,
             //'roleuser'=> $users->roles,
         ];
         return $response; //response($response,201);
@@ -114,40 +113,15 @@ class UserController extends Controller
             'new_password.max' => 'Enter maximum 25 characters',
             'confirm_password.same' => 'Must be the same with the new password',
         ]);
-
-
         #Match The Old Password
         if (!Hash::check($request->old_password, auth()->user()->password)) {
             return back()->with("error", "Old Password Doesn't match!");
         }
-
-
         #Update the new Password
         $user = User::whereId(auth()->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
         return $user;
-    }
-    public function addRoles(Request $request)
-    {
-        $fields = $request->validate([
-            'user_id' => 'required',
-            'exists:users,id',
-            'role_id' => [
-                'integer',
-                'exists:roles,id',
-                'required',
-                Rule::unique('user_roles')
-                    ->where('user_id', $request->user_id)
-            ]
-        ]);
-
-        $user_role = UserRole::create([
-            'user_id' => $fields['user_id'],
-            'role_id' => $fields['role_id'],
-        ]);
-
-        return $user_role;
     }
     // public function editRoles(Request $request,$user_id)
     // {
