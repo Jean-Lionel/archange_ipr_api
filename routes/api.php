@@ -27,11 +27,14 @@ Route::post('register', [UserController::class, 'register']);
 
 Route::post('login',[UserController::class, 'login'] );
 
+
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [UserController::class, 'logout']);
     Route::apiResource('adresse', AdresseController::class);
     Route::apiResource('contribuable', ContribuableController::class);
     Route::apiResource('employe', EmployeController::class);
     Route::apiResource('paiment-ipr', PaimentIprController::class);
     Route::get('generate_ipr', [PaimentIprController::class, 'generate_ipr']);
+    Route::get('sum_ipr/{month}/{year}', [PaimentIprController::class, 'sum_ipr'])->name('sum_ipr');
     Route::apiResource('taux-imposamble', TauxImposambleController::class);
 });

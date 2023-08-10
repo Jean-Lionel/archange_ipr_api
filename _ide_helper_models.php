@@ -54,6 +54,7 @@ namespace App\Models{
  * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Adresse $adresse
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Employe> $employes
  * @property-read int|null $employes_count
  * @method static \Database\Factories\ContribuableFactory factory($count = null, $state = [])

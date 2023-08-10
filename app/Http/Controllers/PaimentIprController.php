@@ -13,7 +13,21 @@ use Illuminate\Http\Response;
 
 class PaimentIprController extends Controller
 {
+    public function sum_ipr($month , $year){
 
+       $data = PaimentIpr::whereMonth('date_paiement', '=', $month ?? date('m'))
+                    ->whereYear('date_paiement', '=', $year ?? date('Y'))
+                    ->get();
+        return [
+            "total" => [
+                'total_ipr' => $data->sum('IPR'),
+                'total_inss' => $data->sum('inss'),
+                'total_mfp' => $data->sum('mfp'),
+                'total_remuneration_brut' => $data->sum('remuneration_brut'),
+            ],
+            "records" => $data
+        ];
+    }
     public function generate_ipr(){
         // recueillir tout les salaries qui n'ont pas encore payé le IPR pour le moins encours
 
@@ -22,9 +36,9 @@ class PaimentIprController extends Controller
 
         foreach ($employes as $key => $employe) {
             # code...
-            $ipr = $employe->calculus_ipr();
+            $ipr = $employe->calculer_ipr();
             PaimentIpr::create([
-                'contribuable_id' => 1,
+                'contribuable_id' => random_int(2,10),
                 'employe_id' => $employe->id,
                 'date_paiement' => date('Y-m-d H:i:s'),
                 'montant_employe' => 0,
