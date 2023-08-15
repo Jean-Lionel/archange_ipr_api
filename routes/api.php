@@ -25,12 +25,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [UserController::class, 'register']);
 
-Route::post('login',[UserController::class, 'login'] );
+Route::post('login', [UserController::class, 'login']);
 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
-    Route::apiResource('adresse', AdresseController::class);
+    Route::apiResource('address', AdresseController::class);
     Route::apiResource('contribuable', ContribuableController::class);
     Route::apiResource('employe', EmployeController::class);
     Route::apiResource('paiment-ipr', PaimentIprController::class);
